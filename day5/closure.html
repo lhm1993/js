@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>闭包</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<script language="javascript">
+<!--
+	
+	function A(){
+		var i = 0 ;
+		function b(){
+			
+			window.alert(++i) ;
+		}
+		return b ;
+	}
+	//闭包-->主要讨论的是回收时机的问题，如果直接执行了A() 那么执行完垃圾回收机制就会将A回收，
+	//但是通过下面这种闭包方法，使得c拥有了A()， 那么执行只有c消除了，才会执行回收机制
+	var c = A() ;
+	c() ;
+//-->
+</script>
+</head>
+</html>

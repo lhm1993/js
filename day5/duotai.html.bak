@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Encapulation</title>
+<script language="javascript" type="text/javascript">
+<!--
+
+	//原型对象
+	function Master(){
+
+		this.feed = function(animal , food){
+			document.writeln("主人给"+animal.name+"喂"+food.name) ;
+		}
+	}
+
+	function Animal(name){
+		this.name = name ;
+	}
+
+	function Food(name){
+		this.name = name ;
+	}
+
+	//各种动物
+
+	function Dog(name){
+		//对象冒充
+		this.dog = Animal ; 
+		//调用该类的构造函数，这一步是必须的，否则会显示缺少对象
+		this.dog(name) ;
+	}
+	function Monkey(name){
+	
+		this.monkey = Aniaml ;
+		this.monkey(name) ;
+	}
+	//食物
+	function Peach(name){
+		this.peach = Food ;
+		this.peach(name) ;
+	}
+	function Bone(name){
+		this.bone = Food;
+		this.bone(name) ;
+	}
+	
+	var master = new Master() ;
+	var dog = new Dog("dog") ;
+	var bone = new Bone("bone") ;
+
+	master.feed(dog  , bone) ;
+//-->
+</script>
+</head>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	//将每一维数组都当成一维数组，然后再对每一个元素进行遍历
+	//所以在第一层循环上控制遍历长度使用的是 arr.length ，这和遍历一维数组使用的语句是一样的
+	//在遍历二维的时候，就将一维的一个元素arr[i]当做一个数组
+	//控制遍历长度使用的就是 arr[i].length
+	arr= [1,"hanming", [1,2,3,4],[1],["Li" , "Han" , "Ming"],["Is" , "Great"]] ;
+	
+	for(var i = 0 ; i < arr.length ; i++){
+		//document.writeln(arr[i].length+"<br/>") ;
+		if(arr[i].length && typeof(arr[i]) != "string" ){
+			for(var j = 0 ; j < arr[i].length ; j++){
+			document.writeln(arr[i][j]) ;
+			}
+		}else{
+			document.writeln(arr[i]) ;
+		}
+		document.writeln("<br/>") ;
+	}
+</script>
+</head>
+</html>

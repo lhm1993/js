@@ -1,0 +1,12 @@
+<html>
+<head>
+<title>typeof</title>
+<script language="javascript">
+	
+	var a = "abc" ;
+	window.alert(parse(a))
+	num1 = "aa";
+	document.write(typeof(num1))
+</script>
+</head>
+</html>

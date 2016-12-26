@@ -1,0 +1,27 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	
+	function Person(){
+		this.name = "abc" ;
+		this.age = 23 ;
+	}
+	var p1 = new Person() ;
+	p1.a = function test(){
+		window.alert("texting") ;
+	}
+	p1.a() ;
+	var p2 = new Person() ;
+	//p2.test() ;
+
+
+	//使用prototype给Person类绑定一个方法
+	Person.prototype.speak = function(){
+		window.alert("I can speak") ;
+	}
+	var p3 = new Person ;
+	p3.speak();
+</script>
+</head>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	
+	function Cat(){
+
+	}
+	//这样使用就是函数
+	Cat() ; 
+
+	//这样使用就是类
+	//这里的cat1就是一个对象（实例）
+	var cat1 = new Cat() ;
+	cat1.name = "write" ;
+	cat1.age = 3 ;
+	cat1.color = "白色" ;
+	//1.从这里看出，JS中的属性可以动态添加(不用提前在类中定义好)
+	//2.属性没有限制
+	
+	//不能直接写一个cat1,会输出一个 object 不会输出cat1的所有属性
+	document.writeln(cat1.name) ;
+
+</script>
+</head>
+</html>

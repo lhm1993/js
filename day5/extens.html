@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>Encapulation</title>
+<script language="javascript" type="text/javascript">
+<!--
+	function Stu(name , age){
+		this.name = name ;
+		this.age = age ;
+
+		this.show = function(){
+			window.alert(this.age+this.name) ;
+		}
+	}
+
+	function Midstu(name , age ){
+		//JS中是没有正真的继承的，采用是一种叫做对象冒充的方式
+		//也就是下面这种方式，相当于将所有的父类赋值给了要继承的他的子类中的一个变量
+		//通过这个变量来调用，也是建立在封装基础之上的
+		this.stu = Stu ;
+		//所以，这里必须写上构造函数，否则会报错，对象不存在
+		this.stu(name , age) ;
+
+	}
+	
+	var s1 = new Midstu("hm" , 23) ;
+	s1.show() ;
+//-->
+</script>
+</head>
+</html>

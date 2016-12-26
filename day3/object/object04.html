@@ -1,0 +1,15 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	//这相当于下面这些都在window对象中，window是顶级对象
+	function test1(){
+		alert(this.v) ;
+	}
+	var v = 90 ;
+	//这里相当于在test1()方法前面省略了window对象名
+	test1() ; //这里的test1() 等价于 window.test1() ;
+
+</script>
+</head>
+</html>

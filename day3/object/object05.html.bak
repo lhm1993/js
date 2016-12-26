@@ -1,0 +1,25 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	
+	function Person(){
+		this.name = "abc" ;
+		this.age = 23 ;
+	}
+	function show(){
+		window.alert("yo "+this.name) ;
+	}
+	//这里相当于是给window对象的一个属性
+	//var name = "abc2" ;
+	var p1 = new Person() ;
+	//p1.a = show ;
+	//p1.a() ;
+	//这里相当于window在调用show()
+	//如果由于有 var name = "abc2" ;
+	//所以在show()中会优先调用name = "abc2"
+	//若将 var name = "abc2" ; 注释掉，那么就会show()就会调用Person里面的name
+	show() ;
+</script>
+</head>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>构造函数</title>
+<script language="javascript" type="text/javascript">
+<!--
+	/*
+	function Person(name , age){
+		this.name = name ;
+		this.age = age ;
+	}
+
+	//创建Person对象那个的时候，就可以直接给名字和年龄
+	var p1 = new Person("abc" , 20) ; 
+	window.alert(p1.name) ;
+	*/
+
+	//先创建一个全局方法
+	function jisuan(num1 , num2 , oper){
+		
+		if(oper == "+"){
+			return num1 + num2 ;
+		}else if(oper == "-"){
+			return num1 - num2 ;
+		}else if(oper == "*"){
+			return num1 * num2 ;
+		}else{
+			return num1/num2 ;
+		}
+	}
+
+	//再创建一个类
+	
+	function Person(name , age , fun){
+		this.name = name ;
+		this.age = age ;
+		this.fun = fun ;
+	}
+	//这里在给对象赋初值的时候，只能写函数的名字，不能在方法的后面加上多余的括号
+	//加上括号后会提示缺少函数的错误
+	var p1 = new Person("lhm" , 23 ) ;
+	//如果不给给对象初始方法，显示的就是undefined
+	 //window.alert(p1.fun) ;
+	//window.alert(p1.fun(23 , 20 , "*")) ;
+
+//-->
+
+</script>
+</head>
+</html>

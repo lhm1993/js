@@ -1,0 +1,38 @@
+
+.gamediv{
+	width:500px ;
+	height:400px ;
+	background-color:pink ;
+}
+
+/*.mariojpg{
+	margin-left:100px ;这里不加分号，不会报错，但是结果不能正确显示
+	margin-top:20px ;
+	width:50px ;
+	position : absolute ;
+}
+*/
+.controlcenter{
+	margin:20px 0 0 40px;
+	width: 400px ;
+	height: 100px ;
+	/*background-color: blue ;*/
+	border:red solid 2px ;
+}
+/*
+	使用下面这种方式就可以控制表格中的行列边框形样式了
+*/
+td{
+	border: blue solid 1px;
+}
+
+#div2{
+
+	width:100px ;
+	height:100px ; 
+	background-color:green ;
+	left:100px ;
+	top:100px ;
+	position:relative ;
+	/*position:absolute ;*/
+}

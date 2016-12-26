@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>eventDriven</title>
+<meta http-equiv="content-type"content="text/html;charset=utf-8">
+<script language="javascript">
+<!--
+	function test3(e){
+		window.alert("ok1") ;
+	}
+	function test4(e){
+		//对于按钮来说，是不能使用e.clientX 与 e.clientY来显示坐标的，因为这两个属性是onmouseDown
+		window.alert("ok2") ;
+	}
+	
+//-->
+</script>
+</head>
+<body >
+<div id="div1" style="width:400px;height:200px;background-color:red">div1</div>
+<input type="button" value="black" onclick="test3(this),test4(this)"/>
+
+</body>
+</html>

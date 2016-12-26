@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Encapulation</title>
+<script language="javascript" type="text/javascript">
+<!--
+	function Person(name , ageIn,sal){
+		//这里在JS中只有两种属性，私有的和公开的
+		//对于方法也是一样
+		//如果想访问私有方法，可以使用公开方法去调用私有方法
+		this.name = name ;  //公开的属性
+		var age = ageIn ;   //私有的属性
+		var salary = sal ;  //私有的属性
+
+		var test = function(){
+			window.alert(" It is test") ;
+		}
+		this.show = function(){
+			window.alert("It is show") ;
+			//在这里不能写成 this.test()->这种调用方法是错误的
+			//可以这样理解，如果使用this就相当于当前对象调用，但是，当前对象在外部，所以不能调用，所以会报错，也就是没有权限访问
+			test() ;
+		}
+
+	}
+
+	var p1 = new Person("hm" , 23 , 12000);
+	window.alert(p1.name) ;
+	window.alert(p1.age) ;
+	p1.show() ;
+
+
+//-->
+</script>
+</head>
+</html>

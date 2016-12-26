@@ -1,0 +1,18 @@
+//myvalue=myvalue.substr(0,0);            //如果输入是一个运算符，先将输入框清空，然后再读入第二个数
+				myText.value='' ;
+				num2 += parseInt(myvalue) ;
+				switch(oper){							//根据输入的运算符，进行计算
+					case "+":
+						num1 += num2 ;
+						break ;
+					case "-":
+						num1 -= num2 ;
+						break ;
+					case "*":
+						num1 *= num2 ;
+						break ;
+					case "/":
+						num1 /= num2 ;
+						break ;
+				}
+				myText.value = num1 ;	

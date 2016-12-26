@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>turtle</title>
+<meta http-equiv="content-type" content="text/htmlcharset=utf-8"/>
+<link href="test.css" type="text/css"rel="stylesheet"/>
+<script language="javascript">
+<!--
+	function move(e){
+		//获得乌龟的信息
+		var turtle=document.getElementById("turtle");
+		var turtle_top=turtle.style.top ;
+		turtle_top=parseInt(turtle_top.substr(0,turtle_top.length-2)) ;
+		var turtle_left=turtle.style.left ;
+		turtle_left=parseInt(turtle_left.substr(0,turtle_left.length-2)) ;
+		var turtle_width=turtle.style.width ;
+		turtle_width=parseInt(turtle_width.substr(0,turtle_width.length-2)) ;
+		var turtle_height=turtle.style.height ;
+		turtle_height=parseInt(turtle_height.substr(0,turtle_height.length-2)) ;
+
+		//获得公鸡的信息
+		var cock=document.getElementById("cock");
+		var cock_top=cock.style.top ;
+		cock_top=parseInt(cock_top.substr(0,cock_top.length-2)) ;
+		var cock_left=cock.style.left ;
+		cock_left=parseInt(cock_left.substr(0,cock_left.length-2)) ;
+		var cock_width=cock.style.width ;
+		cock_width=parseInt(cock_width.substr(0,cock_width.length-2)) ;
+		var cock_height=cock.style.height ;
+		cock_height=parseInt(cock_height.substr(0,cock_height.length-2)) ;
+
+		
+		//移动乌龟
+		if(e.value=="向上"){
+			if(turtle_top<180){
+				window.alert("碰到上边界了！") ;
+			}else{
+				turtle.style.top=(turtle_top-10)+"px" ;
+			}
+		}else if(e.value=="向下"){
+			if(turtle_top>500){
+				window.alert("碰到下边界了！") ;
+			}else{
+				turtle.style.top=(turtle_top+10)+"px" ;
+			}
+		}else if(e.value=="向左"){
+			if(turtle_left<100){
+				window.alert("碰到左边界了！") ;
+			}else{
+				turtle.style.top=(turtle_left-10)+"px" ;
+			}
+		}else if(e.value=="向右"){
+			if(turtle_left>500){
+				window.alert("碰到左边界了！") ;
+			}else{
+				turtle.style.left=(turtle_left+10)+"px" ;
+			}
+		}
+
+		//得到两图的横纵坐标差值的绝对值
+		var y=Math.abs(turtle_top-cock_top) ;
+		var x=Math.abs(turtle_left-cock_left) ;
+		//window.alert(xx +" "+ yy);
+		var xx=0 ;
+		var yy=0 ;
+
+		//判断横纵坐标是否相交
+		if(x<=cock_width){
+			xx=1;
+			if(y<=turtle_height || y<=cock_height){
+				yy=1;
+			}
+		}
+		if(x<=turtle_width){
+			xx=1 ;
+			if(y<=turtle_height || y<=cock_height){
+				yy=1;
+			}
+		}
+		if(xx==1 && yy==1){
+			window.alert("捉到了！") ;
+		}
+
+	}
+//-->
+</script>
+</head>
+<body onkeydown="move(event)">
+<table>
+<tr>
+<td>&nbsp</td>
+<td>
+<input type="button" value="向上" onclick="move(this)"/>
+</td>
+<td>&nbsp</td>
+</tr>
+
+<tr>
+<td><input type="button" value="向左" onclick="move(this)"/></td>
+<td>&nbsp</td>
+<td><input type="button" value="向右" onclick="move(this)"/></td>
+</tr>
+
+<tr>
+<td>&nbsp</td>
+<td>
+<input type="button" value="向下" onclick="move(this)"/>
+</td>
+<td>&nbsp</td>
+</tr>
+</table>
+<br/><hr width="1200x"></hr>
+<img src="1.jpg" id="turtle" style="position:absolute;width:50px;height:50px;left:120px;top:180px"/>
+<img src="2.jpg" id="cock" style="position:absolute;width:50px;height:50px;left:300px;top:300px"/>
+</body>
+</html>

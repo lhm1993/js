@@ -1,0 +1,157 @@
+<html>
+<head>
+<title>jisuanqi</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="stylesheet" type="text/css" href="js.css"/>
+<script language="javascript">
+<!--
+
+	//思路一，每输入一组数就进行一次计算，将计算的结果显示出来
+	//思路二，将所有的操作数都使用字符串存储下来，然后最后在一起计算
+
+	var myvalue='' ;  //用来将输入的数以字符串的形式临时存储下来 
+	var operNum=0 ;	  //记录操作符的个数
+	var num1=0 ;	  //保留输入的数
+	var num2=0;		  
+	var flag = 0 ;    //用来指示当前是否执行DEL
+	var oper = '' ;   //接收当前输入的操作符
+	function putIn(e){
+		//window.alert("shuru"+e.value) ;
+		var myText=document.getElementById("mytext") ;
+		//myText.value=myvalue ;
+		if((!isNaN(parseInt(e.value))) || e.value=="."){ //如果输入是一个数或者 . 
+			myvalue+=e.value ;
+			flag=1 ;//这里表示现在是在输入状态，可以使用DEL
+			myText.value=myvalue ;
+		}else if(e.value=="DEL"){
+			/*
+				如果使计算结果，那么点击DEL时不应该执行的
+				设置一个标志位，如果是计算结果，那么flag=1 如果是输入，flag=0
+			*/
+			if(myvalue.length!=0 && flag==1){
+				//这里必须使用字符串函数才能减少字符串的长度，不能单纯的使用如下方法改变字符串长度
+				//myvalue.length--; //这种方法无法正确显示结果
+				myvalue = myvalue.substr(0 , myvalue.length-1) ;
+				myText.value=myvalue ;
+			}else{
+				window.alert("请输入！") ;
+			}
+		}else if(e.value=="C"){						//将输入清空	
+			//myvalue.length=0 ;
+			myvalue=myvalue.substr(0,0) ;
+			num1=0 ;
+			num2=0 ;
+			operNum=0 ;
+			myText.value='' ;
+		}else if(e.value=="="){
+			/*
+				如果输入是等号，直接计算num2 和 num1 的值就可以了
+			*/
+			
+			num2 = parseFloat(myvalue) ;
+			switch(oper){							//根据输入的运算符，进行计算
+					case "+":
+						num1 += num2 ;
+						break ;
+					case "-":
+						num1 -= num2 ;
+						break ;
+					case "*":
+						num1 *= num2 ;
+						break ;
+					case "/":
+						num1 /= num2 ;
+						break ;
+				}
+				//myText.value='';
+				//operNum=0;
+				myText.value = num1 ;					 //输入框的内容为计算结果
+				flag=0 ;//这里表示现在显示的计算结果，不能使用DEL
+				//改为下面这种方法
+				//myvalue.length=0 ;
+		}else{										//输入的是运算符 + - * /
+			/*
+				怎么处理连续输入的计算符这种计算模式；
+					如果输入的是本次计算的第一个运算符，那么将第一个操作数转换为数字即可
+					如果输入的不是本次计算的第一个运算符，也就是连续输入计算符并没有输入等号，
+					先将操作符保存，然后根据operNum 来进行判断
+					如果operNum=1，表示是连续输入，那么就计算num1 和 num2 的oper操作，然后将operNum置0
+			*/
+			//operNum++ ;
+			if(oper==''){
+				num1=parseFloat(myvalue) ;
+			}else{
+				num2=parseFloat(myvalue) ;
+				switch(oper){							
+					case "+":
+						num1 += num2 ;
+						break ;
+					case "-":
+						num1 -= num2 ;
+						break ;
+					case "*":
+						num1 *= num2 ;
+						break ;
+					case "/":
+						num1 /= num2 ;
+						break ;
+				}
+				
+			}
+			oper = e.value ;
+			myvalue='' ;
+			myText.value = num1 ;					
+			flag=0 ;
+		}
+	}
+
+//-->
+</script>
+</head>
+<body>
+<form >
+<table>
+<!--
+	使用table来布局,5行4列的一个table
+-->
+<tr>
+<td colspan="4"><input id="mytext" type="text" name="shuru" style="width:200px;margin-left:0; text-align:right" /></td>
+</tr>
+
+<tr>
+<td colspan="2"><input type="button" value="DEL" onclick="putIn(this)"/></td>
+<td colspan="2"><input type="button" value="C" onclick="putIn(this)"/></td>
+</tr>
+
+<tr>
+<td><input type="button" value="1" onclick="putIn(this)"/></td>
+<td><input type="button" value="2" onclick="putIn(this)"/></td>
+<td><input type="button" value="3" onclick="putIn(this)"/></td>
+<td><input type="button" value="+" onclick="putIn(this)"/></td>
+</tr>
+
+<tr>
+<td><input type="button" value="4" onclick="putIn(this)"/></td>
+<td><input type="button" value="5" onclick="putIn(this)"/></td>
+<td><input type="button" value="6" onclick="putIn(this)"/></td>
+<td><input type="button" value="-" onclick="putIn(this)"/></td>
+</tr>
+
+<tr>
+<td><input type="button" value="7" onclick="putIn(this)"/></td>
+<td><input type="button" value="8" onclick="putIn(this)"/></td>
+<td><input type="button" value="9" onclick="putIn(this)"/></td>
+<td><input type="button" value="*" onclick="putIn(this)"/></td>
+</tr>
+
+<tr>
+<td><input type="button" value="." onclick="putIn(this)"/></td>
+<td><input type="button" value="0" onclick="putIn(this)"/></td>
+<td><input type="button" value="/" onclick="putIn(this)"/></td>
+<td><input type="button" value="=" onclick="putIn(this)"/></td>
+</tr>
+
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>eventDriven</title>
+<link href="event2.css" rel="stylesheet"type="text/css"/>
+<meta http-equiv="content-type"content="text/html;charset=utf-8">
+<script language="javascript">
+<!--
+	
+	
+
+//-->
+</script>
+</head>
+<body >
+
+<!--
+	如何通过修改style来改变style
+-->
+<div id="div1" class="style1">div1</div>
+<input type="button" value="black" onclick="test3(this)"/>
+<input type="button" value="red" onclick="test3(this)"/>
+</body>
+</html>

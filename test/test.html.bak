@@ -1,0 +1,25 @@
+<!doctype html>
+<html >
+ <head>
+  <meta charset="UTF-8">
+ </head>
+ <style type="text/css">
+	.te{
+		text-align:center;
+	 }
+	 select{
+		width:100px;
+		position:absolute;
+	 }
+ </style>
+ <body>
+ <span class="te" >
+	 <select >
+		<option value="__">&nbsp&nbsp&nbsp&nbsp&nbsp---</option>
+		<option value="__">    ---</option>
+		<option value="__">    ---</option>
+	 </select>
+ </span>
+ 
+ </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	//JS中的数组定义不用声明是数组，PHP中是要是不声明，直接赋值使用的，同为弱数据类型
+	var weights = [3 , 5 , 7 , 8 , 6, 5.5] ;
+	var avgWeights = 0 ;
+	var allWeights = 0 ;
+	for(var i = 0 ; i < weights.length ; i ++){
+		allWeights += weights[i] ;
+		//document.writeln(weights[i]) ;
+	}
+	avgWeights = allWeights / weights.length ;
+	
+	document.writeln("总重量："+allWeights+"<br/>"+"平均重量："+avgWeights.toFixed(1)) ;
+
+</script>
+</head>
+</html>

@@ -1,0 +1,14 @@
+
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	function test1(){
+		alert(this.v) ;
+	}
+	var v = 90 ;
+	test1() ;
+
+</script>
+</head>
+</html>

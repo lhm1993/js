@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>newWindow</title>
+<meta http-equiv="content-type" content="text/htmlcharset=utf-8"/>
+<script language="javascript">
+<!--
+	//opener属性是伴随着open函数产生的，是一个指向父窗口句柄，可以用来对父窗口进行操作
+	function test1(){
+		opener.$("info1").value=$("info2").value ;
+	}
+	function $(id){
+		return document.getElementById(id) ;
+	}
+	
+//-->
+</script>
+</head>
+<body>
+<input type="text" value="" id="info2"/>
+<input type="button" value="将信息返回给父窗口" onclick="test1();">
+<span id="myWindow"></span>
+</body>
+</html>

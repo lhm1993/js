@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>window1</title>
+<meta http-equiv="content-type" content="text/htmlcharset=utf-8"/>
+<script language="javascript">
+<!--
+	function test(){
+		window.alert("abc") ;
+	}
+	//setTimeout()只能调用一次
+	//setTimeout("test()" , 3000) ;
+
+	//clearTimeout()的使用方法
+	var mytime=setTimeout("test()",1000) ; 
+	//取消setTimeout()这设置的时钟
+	clearTimeout(mytime) ;
+	//将窗口移动到指定的位置
+	window.moveTo(100,100) ;
+
+	function test1(){
+		//以当前位置为基准，移动一个位移
+		window.moveBy(100,100) ;
+		window.open("","_blank","channelmode=yes,fullscreen=yes")
+	}
+	setTimeout("test1()",2000) ;
+	
+//-->
+</script>
+</head>
+<body>
+</body>
+</html>			

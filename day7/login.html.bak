@@ -1,0 +1,25 @@
+<script language="javascript">
+<!--
+	function checkuser(){
+		//这里可以和数据库来连接
+		if($("uname").value=="lhm"&&$("pwd")==123){
+			//window.alert("ok") ;
+			return true ;
+		}else{
+			//window.alert(" no ok") ;
+			return false ;
+		}
+	}
+	function $(id){
+		return document.getElementById(id) ;
+	}
+//-->
+</script>
+<form action="ok.html">
+uesr:<input type="text" value="" id="uname"/>
+pwd:<input type="password" value="" id="pwd"/>
+<!--
+	如果onclick()得到一个 假  就会放弃本次提交，也就是通过 return checkuser(); 这种方法来实现
+-->
+<input type="submit" onclick="return checkuser();"value="login"/>
+</form>

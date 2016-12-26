@@ -1,0 +1,63 @@
+<!--
+*********
+在外部调用css属性的方式
+<style>
+/*第一条规则*/
+div.css{
+	background-color:red ;
+	width:100px ;
+}
+
+/*第二条规则*/
+a.btn2{
+	background:url(###.jpg) ;
+}
+</style>
+
+访问css：
+var ocssRules = document.styleSheet[0] (火狐浏览器)|| document.styleSheet[0].rules(IE浏览器)
+
+//访问第一条规则
+alert(ocssRules[0].stylel.backgroundColor) ;
+//设置值
+ocssRules[0].style.width = "99px" ;//这里使用的字符串
+
+//访问第二条规则
+alert(ocssRules[1].style.background) ;
+//设置值
+ocssRules[0].style.background = "url(###.jpg) ; " //这里使用的是字符串
+
+以上是引用的时候一些简单的应用
+**********
+-->
+<html>
+<head>
+<title>event3</title>
+<link rel="stylesheet" type="text/css" href="event3.css"/>
+<script language="javascript" type="text/javascript">
+<!--
+	function test(eventobj){
+		//这里写 document.styleSheet[0].rules中的 0 表示当前读取的是引入的第一个css文件
+		//因为一个html文件可能会引入多个css文件，如果想获得第二个一如的css文件，则添 1 。。 以此类推
+		//这里返回的是一个集合，返回的是所有的类选择器
+		var ocssRules = document.styleSheets[0].rules ;
+		//从ocssRules中取出你希望的class
+		//取出第一个类
+		var style1=ocssRules[0] ;
+		if(eventobj.value=="red"){
+			style1.style.backgroundColor="red" ;
+		}else{
+			style1.style.backgroundColor="black" ;
+		}
+	}
+
+
+//-->
+</script>
+</head>
+<body>
+<div id="div1" class="style1">div1</div>
+<input type="button" value="black" onclick="test(this)"/>
+<input type="button" value="red" onclick="test(this)"/>
+</body>
+</html>

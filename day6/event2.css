@@ -1,0 +1,12 @@
+.style1{
+	
+	width:1px;
+	height:2px;
+	background-color:red ;
+
+}
+body{
+	background-image:url("1.jpg") ;
+	background-size:200px 300px;
+	background-repeat:repeat-y ;
+}

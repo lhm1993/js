@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>window1</title>
+<meta http-equiv="content-type" content="text/htmlcharset=utf-8"/>
+<script language="javascript">
+<!--
+/*
+	function test(){
+		var res=window.confirm("你要删除吗？") ;
+		if(res){
+			window.alert("确认删除！") ;
+		}else{
+			window.alert("放弃删除！") ;
+		}
+	}
+	function say(){
+		window.alert("hello") ;
+	}
+	*/
+	function showTime(){
+		document.writeln(new Date());
+		//在元素间的文本就是通过 对象.innerText
+		document.getElementById("mytime").innerText = new Date().toLocaleString();
+	}
+	window.setInterval("showTime()",1000) ;
+	
+//-->
+</script>
+</head>
+<body>
+<span id="mytime" >22222222222222</span>
+</body>
+</html>

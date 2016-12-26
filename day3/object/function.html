@@ -1,0 +1,51 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	
+	function Person(name , age ){
+		//使用传入的参数来初始化属性，这就相当于构造函数
+		//this修饰的是公开属性
+		this.name = name ;
+		this.age = age ;
+		//this修饰的是公开的函数
+		this.speak = function(){
+			document.writeln("名字："+this.name) ;
+		}
+		//计算1+。。。+1000
+		this.jisuan = function(n){
+			var sum = 0 ;
+			for(var i = 1 ; i <= n ; i ++){
+				sum+=i ;
+			}
+			return sum ;
+		}
+	}
+	function test(){
+		document.writeln("I am test()") ;
+	}
+	//实例化一个对象
+	var p1 = new Person("xm" , 23) ;
+	//调用公开方法speak()
+	p1.speak() ;
+	//调用公开方法jisuan()
+	document.writeln(p1.jisuan(100)) ;
+	//这里的知识点有三个：
+	//1. 对象的属性是动态增长的
+	//2. 可以直接将类以外的方法赋值给对象
+	//   但是赋值的时候只需要是 对象名.方法名 = 方法名（这里在方法名后面不需要加上括号）
+	//3. 有两种方式将一个方法赋给一个对象的属性
+	// 3.1 第一种如下，test()还可以赋给其他对象
+	p1.a = test;
+	p1.a() ;
+	// 3.2 第二种如下,这里的show()只属于p1.b，不能再赋值给其他对象了，一般使用第一种
+	p1.b = function show(){
+		document.writeln("I am show()") ;
+	}
+	p1.b() ;
+	document.writeln("<br/>") ;
+	document.writeln(p1.b) ;
+	
+</script>
+</head>
+</html>

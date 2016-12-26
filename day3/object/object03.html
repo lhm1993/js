@@ -1,0 +1,36 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	function Person(){
+		//如果使用var定义属性，那么这两个属性就是私有的
+		//在外部是不能调用的
+		//凡是公有的属性或者方法，都要使用this关键字修饰
+		//下面的属性和方法都是公有的，在外部是可以直接使用 对象名.属性 or 对象名.方法 来调用的
+		this.name = "li hanming" ;
+		this.age = 22 ;
+		//这个函数就是公开的
+		this.show = function(){
+			document.writeln(name1+" "+age1) ;
+		}
+		
+		//这些属性和方法就是私有的，在外部不能调用
+		var name1 = "hanming" ; 
+		var age1 = 23 ;
+		function show1(){
+			document.writeln("这是show1")
+		}
+		
+	}
+
+	var person1 = new Person() ;
+	var person2 = new Person() ;
+	//person2.name = "li hanming" ;
+	//person2.age = 22 ;
+
+	document.writeln(person1.name1 + "&nbsp" + person1.age1+person1.show()+"<br/>") ;
+	document.writeln(person2.name + "&nbsp" + person2.age+person2.show1+"<br/>") ;
+
+</script>
+</head>
+</html>

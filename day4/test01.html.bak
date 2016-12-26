@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>编写一个面向对象的函数</title>
+<script language = "javascript">
+	//初步体验Object类
+	//使用Object类直接创建对象
+	//var p1 = new Object() ;
+	//p1.name = "hm" ;
+	
+	/*	
+	var i = new Number(10) ;
+	//这样会使每一个数字都拥有一个add()
+	//这样就表示可以给一个类添加方法
+	Number.prototype.add = function(a){
+		//这里直接用this代指当前调用该方法的对象
+		return this+a ;
+	}
+	window.alert(i.add(10)) ;
+	//window.alert(i.constructor) ;
+	//window.alert(i) ;
+	//window.alert(p1.constructor) ;
+	//window.alert(Number.MIN_VALUE);
+	*/
+	
+	//这里Array花括号里面的参数表示该数组的容量
+	//var arr = new Array(3) ;
+	//push() pop()方法相当于将这个数组当成了一个栈
+	//arr.push(1,2,3) ;
+	/*
+	for(var i = 0 ; i < arr.length ; i++){
+		//这里pop()方法是没有形参的，但是如果写上形参也不会报错
+		//这就再一次体现出JS的动态添加属性的特点了
+		document.writeln(arr.pop(1)) ;
+	}
+	*/
+	//使用 数组名.reverse() 颠倒数组数据
+	//arr.reverse() ;
+
+	/*
+	//JS中的一切都是对象，所以当一个对象调用一个方法的时候，this就表示该对象（数组，数字，字符串对象）
+	//这里直接以一个this就可以了
+	//比如下面的代码
+	Number.prototype.tripleMultiple = function() {
+		return this*this*this ;
+	}
+	var arr = new Number(10) ;
+	window.alert(arr.tripleMultiple()) ;
+	*/
+	
+	//关于函数参数可变的深入理解
+	function test(a){
+		window.alert(a) ;
+	}
+	function test(a , b){
+		window.alert(a+ " "+b) ;
+	}
+	test(23 );
+	
+</script>
+</head>
+</html>

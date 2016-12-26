@@ -1,0 +1,24 @@
+<html>
+<head>
+<title>函数参数个数可变深入理解</title>
+
+<meta http-equiv="content-type" content="text/html;chatset=utf-8"/>
+
+<script language = "javascript">
+	
+	function ab(){
+
+		window.alert(arguments.length) ;
+		for(var i = 0 ; i < arguments.length ; i++){
+			document.writeln(arguments[i]) ;
+		}
+		document.write("<br/>") ;
+	}
+	ab(1,1,1) ;
+	ab("2" , "\"I am great !\"") ;
+
+</script>
+</head>
+<body>
+</body>
+</html>

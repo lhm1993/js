@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>window3</title>
+<meta http-equiv="content-type" content="text/htmlcharset=utf-8"/>
+<script language="javascript">
+<!--
+	//需要将newWindow设置为全局变量，因为有两个函数需要调用
+	var newWindow;
+	function test1(){
+		//open()会返回一个子窗口的句柄，可以用来对子窗口进行操作
+		newWindow=window.open("newWindow.html","_blank") ;
+		
+	}
+	//当test2() 被触发的时候，就会将父窗口信息传递到子窗口
+	function test2(){
+		newWindow.$("info2").value=$("info1").value ;
+	}
+	//JS中是可以将调用函数写在主调函数之后的
+	//这里写成这样是为了简便的使用document.getElementById()函数
+	function $(id){
+		return document.getElementById(id) ;
+	}
+	
+//-->
+</script>
+</head>
+<body>
+<input type="text" value=""  id="info1"/>
+<input type="button" value="打开一个新窗口" onclick="test1();">
+<input type="button" value="将信息发给子窗口" onclick="test2();">
+<span id="myWindow"></span>
+</body>
+</html>

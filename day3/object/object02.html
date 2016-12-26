@@ -1,0 +1,49 @@
+<html>
+<head>
+<title></title>
+<script language = "javascript">
+	//这里的Person后面的 () 不能少，没有参数可以
+	function Person(){
+
+	}
+
+	//从这里代码的输出结果可以看出
+	//string number 本身都是对象
+	//JS中一切都是对象
+	//Person是一个以function为类实例化的一个对象
+	document.writeln(Person.constructor) ;
+	document.writeln("<br/>") ;
+	//person是以Person类为实例化模板实例化的一个对象
+	var person = new Person() ;
+	document.writeln(person.constructor) ;
+	document.writeln(typeof(person)) ;
+	document.writeln("<br/>") ;
+	
+	//a的赋值决定了其时以哪一个类为实例化模板而实例化的对象
+	var a = 123 ;
+	document.writeln(a.constructor) ;
+	document.writeln(typeof(a)) ;
+	document.writeln("<br/>") ;
+	var a = "123" ;
+	document.writeln(a.constructor) ;
+	document.writeln(typeof(a)) ;
+	document.writeln("<br/>") ;
+	
+	//如何判断一个对象属于某个类
+	//方法一、使用 typeof 
+	if("number" ==  typeof(a)){
+		document.writeln("a 是一个数字……1<br/>") ;
+	}
+	//方法二、使用 对象 instanceof 类名 （这里暂时只能用来判断自定义的类）
+
+	if(person instanceof Person){
+		document.writeln("a 是一个数字……2<br/>") ;
+	}
+	//方法三、使用对象.constructor
+	if(a.constructor == Number){
+		document.writeln("a 是一个数字……3<br/>") ;
+	}
+
+</script>
+</head>
+</html>

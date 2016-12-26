@@ -1,0 +1,6 @@
+td{
+	border:solid gray 2px ;
+}
+input{
+	margin-left:10px;
+}

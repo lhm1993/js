@@ -1,0 +1,19 @@
+<script language="javascript">
+<!--
+	function jump(){
+		window.open("window3.html","_blank") ;
+	}
+	//使用定时函数，在一定时间之后调用函数，打开新的页面，完成页面跳转
+	setTimeout("jump()",5000) ;
+	function changeSec(){
+		$("myspan").innerText=$("myspan").innerText-1 ;
+	}
+	//改变页面中的某个标签内的内容，需要使用innerText属性
+	setInterval("changeSec()",1000) ;
+	function $(id){
+		return document.getElementById(id) ;
+	}
+//-->
+</script>
+
+登录成功<span id="myspan">5</span>秒后自动跳转到管理页面

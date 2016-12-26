@@ -1,0 +1,137 @@
+<html>
+<head>
+<!--引入css文件-->
+<link type = "text/css" rel = "stylesheet" href = "mario.css">
+<title>Mario</title>
+<script language = "javascript" type = "text/javascript">
+<!--
+	//设计一个mario类
+	function Mario(){
+		this.x = 0 ;
+		this.y = 0 ;
+
+		this.move = function(direct){
+			//移动 0->上 1->右 2->下 3->左
+			//在这里，为了改变 img 标签下的图片的 margin属性值，需要使用dom 编程
+			switch(direct){
+
+				case 0 :  //上移
+				//window.alert("上移") ; 
+				//*******getElementById()函数中的mymario是提前定义好的，该函数返回的是当前获取到的所给定id的一个对象
+				var mymario = document.getElementById('mymario') ;
+				//这里mymario就是mario.jpg 也就是mymario id所对应的 img 标签所指定的那个对象
+				//*******这种方式要掌握
+				var top = mymario.style.top ;
+				var top = parseInt(top.substr(0 , top.length - 2)) ;
+				//window.alert(mymario.style.top) ;
+				if((top - 20)<0){
+					window.alert("不能再向上移动");
+				}else{
+					mymario.style.top = (top-20) + "px" ;
+				}
+				break ;
+
+				case 1 : // 右移
+				var mymario = document.getElementById('mymario') ;
+				var left = mymario.style.left ;
+				var left = parseInt(left.substr(0 , left.length - 2)) ;
+				//window.alert(mymario.style.top) ;
+				if((left + 25) >= 500){
+					window.alert("不能再向右移动");
+				}else{
+					mymario.style.left = (left+25) + "px" ;
+				}
+				break ;
+
+				case 2 : //下移
+				var mymario = document.getElementById('mymario') ;
+				var top = mymario.style.top ;
+				var top = parseInt(top.substr(0 , top.length - 2)) ;
+				if((top +20) >= 400){
+					window.alert("不能再向下移动");
+				}else{
+					mymario.style.top = (top+20) + "px" ;
+				}
+				break ;
+
+				case 3 : // 左移
+				var mymario = document.getElementById('mymario') ;
+				var left = mymario.style.left ;
+				var left = parseInt(left.substr(0 , left.length - 2)) ;
+				//window.alert(mymario.style.top) ;
+				if((left - 25) < 0){
+					window.alert("不能再向左移动");
+				}else{
+					mymario.style.left = (left-25) + "px" ;
+				}
+				break ;
+
+			}
+		}
+	}
+
+	//创建mario对象
+	var mario = new Mario() ;
+
+	//全局函数
+	//此函数用于响应 onclick 属性
+	//onclick属性的响应必须由全局函数来完成
+	//这里也可以不使用全局函数，直接在onclick属性中赋上 对象.方法  也可以调用 move()
+	function marioMove(direct){
+
+		switch(direct){
+			case 0 :
+				mario.move(0) ;
+				break ;
+			case 1 :
+				mario.move(1) ;
+				break ;
+			case 2 :
+				mario.move(2) ;
+				break ;
+			case 3 :
+				mario.move(3) ;
+				break ;
+		}
+		//window.alert("MarioMoving"+direct) ;
+	}
+
+	function test(){
+
+		//window.alert("test") ;
+
+		var div2 = document.getElementById("div2") ;
+
+		window.alert(div2.style.width) ;
+	}
+//-->
+</script>
+</head>
+<body>
+
+<!--
+mario移动的边框范围
+-->
+<div class = "gamediv">
+<!--这里使用id选择器是为了 响应动漫编程的 getElementById()函数-->
+<img id="mymario" style="width:50px;left:100px;top:60px;position:absolute;" src="mario.jpg"/>
+</div>
+
+<!--
+游戏键盘
+这里为了给table 里面的行列加上边框，需要在table标记里面使用border属性 或者在css文件中使用td标签类来控制
+-->
+
+<table class = "controlcenter" >
+<tr><td colspan = "3">游戏键盘</td></tr>
+<tr><td>**</td><td><input type = "button" value = "↑" onclick = "marioMove(0)"/></td><td>**</td></tr>
+<tr><td><input type = "button" value =" ←" onclick = "marioMove(3)"/></td><td>**</td><td><input type = "button" value = "→" onclick = "marioMove(1)"/></td></tr>
+<tr><td>**</td><td><input type = "button" value = "↓" onclick = "marioMove(2)"></td><td>**</td></tr>
+<!--test  这种方式宣告行不通-->
+<tr><td colspan="3" ><input type="button" value="test" onclick="test()"/></td></tr>
+</table>
+<!--这里是为了测试是否能通过getElementById()方法直接从css文件中获取到标签属性，显示结果行不通-->
+<div id="div2" width="50px">div2</div>
+
+</body>
+</html>

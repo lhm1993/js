@@ -1,0 +1,33 @@
+<html>
+<head>
+<title>构造函数</title>
+<script language="javascript" type="text/javascript">
+<!--
+	
+	var dog = {
+				//普通属性 name
+				name:"xiaogou",
+				//普通属性 age
+				age:8,
+				//方法 fun1
+				fun1:function(){window.alert("wangwang")},
+				//方法 fun2
+				fun2:function(){window.alert("sainiao")}
+	}
+	//这里在调用dog对象的方法的时候，需要在方法名后面加上 ()
+	//dog.fun1() ;
+	
+	function test(){
+		window.alert(this.name) ;
+	}
+	//这里传进去的 dog 是为了改变this所指代的对象
+	//test.call(dog) ;// ==> dog.call 
+	
+	document.writeln("***当前浏览器 window 对象的属性和方法***"+"<br/>") ;
+	for(var key in window){
+		document.writeln(key +"==>"+ window[key]+"<br/>") ;
+	}
+//-->
+</script>
+</head>
+</html>
